@@ -7,6 +7,7 @@ coverage
 
 Backend/node_modules
 Backend/uploads
+Backend/appsettings.json
 Backend/stride-cv/venv
 Backend/stride-cv/__pycache__
 

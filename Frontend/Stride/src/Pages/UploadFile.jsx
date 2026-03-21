@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom'
 import api from '../lib/axios'
 import IosLoader from '../components/IosLoader'
 import { getPendingDirectUpload, uploadVideoDirect } from '../lib/azureUpload'
+import logo from '../assets/logo_with_name.png'
+import upload from '../assets/upload.png'
+import right from '../assets/􀁣.png'
 
 const UploadFile = () => {
   const [file, setFile] = useState(null)
@@ -130,7 +133,7 @@ const UploadFile = () => {
       <div className='flex flex-col'>
         <img
           className='ml-2 mb-8 h-10 w-31'
-          src='https://ik.imagekit.io/g2fqofeyv/logo_with_name.png'
+          src={logo}
           alt='logo'
         />
 
@@ -181,7 +184,7 @@ const UploadFile = () => {
                 <div className='flex flex-col items-center'>
                   <img
                     className='h-12.75 w-9'
-                    src='/src/assets/upload.png'
+                    src={upload}
                     alt='upload'
                   />
                   <p className='text-xs text-white'>Upload Video</p>
@@ -224,7 +227,7 @@ const UploadFile = () => {
             } ${loading ? 'cursor-not-allowed opacity-70' : ''}`}
           >
             {loading ? 'Uploading...' : 'Confirm'}
-            <img className='w-3 h-3'src='src\assets\􀁣.png'></img>
+            <img className='w-3 h-3'src={right}></img>
           </button>
         </form>
       </div>

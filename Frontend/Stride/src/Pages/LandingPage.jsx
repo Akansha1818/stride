@@ -6,6 +6,14 @@ import { ArrowRight,Copyright } from 'lucide-react'
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import IosLoader from '../components/IosLoader'
+import logo from '../assets/logo_with_name.png'
+import image1 from '../assets/Image_1.png'
+import image2 from '../assets/image_2.png'
+import image3 from '../assets/image_3.png'
+import image4 from '../assets/image_4.png'
+import rectangle from '../assets/Rectangle 3.png'
+import icon from '../assets/icon.png'
+
 const LandingPage = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [loading, setLoading] = useState(false)
@@ -63,7 +71,7 @@ const LandingPage = () => {
       <div className='w-full'>
         
         <div className='w-full flex items-center justify-center'>
-          <img className='mt-8 w-[127.503px] h-[39.264px]' src='src/assets/logo_with_name.png' alt='logo'/>
+          <img className='mt-8 w-[127.503px] h-[39.264px]' src={logo} alt='logo'/>
         </div>
 
         <p className='text-[#646464] px-15 max-w-xl mx-auto text-center mt-20 text-[12px] md:text-[16px] md:px-23'>
@@ -98,15 +106,15 @@ const LandingPage = () => {
   {/* ================= MOBILE VERSION ================= */}
   <div className="w-full max-w-[360px] md:hidden justify-center items-center relative">
     <img
-      src="src\assets\Image_1.png"
+      src={image1}
       className="absolute w-[121.79px] h-[69.59px] left-[-115px] top-[60px] rotate-[9.46deg] rounded-[16px] bg-transparent"
     />
     <img
-      src="src/assets/image_2.png"
+      src={image2}
       className="absolute w-[121.79px] h-[69.59px] right-[-35px] top-[40px] rotate-[12.6deg] rounded-[16px] bg-transparent"
     />
     <img
-      src="src/assets/image_3.png"
+      src={image3}
       className="absolute w-[121.79px] h-[69.59px] left-[-20px] bottom-[18px]  rotate-[-9deg] rounded-[16px] bg-transparent"
     />
 
@@ -150,7 +158,7 @@ const LandingPage = () => {
         </p>
         
         <div className="flex items-center gap-2 text-[11px] text-gray-500">
-          <img className='w-[22px] h-[8px]' src='src/assets/logo_with_name.png'></img>
+          <img className='w-[22px] h-[8px]' src={logo} alt='logo'></img>
         </div>
 
       </div>
@@ -164,22 +172,22 @@ const LandingPage = () => {
 
     {/* floating images */}
     <img
-      src="src\assets\Image_1.png"
+      src={image1}
       className="absolute w-[350px] h-[200px] left-[-100px] top-[115px]  rotate-[9.46deg] rounded-[16px] bg-transparent"
     />
 
     <img
-      src="src/assets/image_2.png"
+      src={image2}
       className="absolute w-[350px] h-[200px] right-[125px] top-[65px]  rotate-[12.6deg] rounded-[16px] bg-transparent"
     />
 
     <img
-      src="src/assets/image_3.png"
+      src={image3}
       className="absolute w-[350px] h-[200px] left-[220px] bottom-[-82px]  rotate-[-7.14deg] rounded-[16px] bg-transparent"
     />
 
     <img
-      src="src/assets/image_4.png"
+      src={image4}
       className="absolute w-[350px] h-[200px] right-[-105px] bottom-[-5px] rotate-[-15.38deg] rounded-[16px] bg-transparent"
     />
 
@@ -231,7 +239,7 @@ const LandingPage = () => {
         </p>
 
         <div className="pt-4 flex items-center gap-2 text-sm text-gray-600">
-          <img className='w-[82px] h-[26.46px]' src='src/assets/logo_with_name.png'></img>
+          <img className='w-[82px] h-[26.46px]' src={logo}></img>
           
         </div>
 
@@ -251,14 +259,14 @@ const LandingPage = () => {
       <SportsInfo number="3" heading="Get precise feedback" description="See exactly what you're doing wrong and what to change to improve your performance." />
     </div>
     <div>
-      <img className='md:w-[423px] md:h-[704px] w-[121px] h-[202px]' src='src\assets\Rectangle 3.png'></img>
+      <img className='md:w-[423px] md:h-[704px] w-[121px] h-[202px]' src={rectangle}></img>
     </div>
     
   </div>
 </section>
 
 <section className='w-full flex flex-col justify-center items-center mt-20 md:mt-30 md:gap-1'>
-    <img className='md:w-[100px] md:h-[100px] w-[55px] h-[55px] mb-8' src='src\assets\icon.png'></img>
+    <img className='md:w-[100px] md:h-[100px] w-[55px] h-[55px] mb-8' src={icon} alt='icon'></img>
     <h1 className='md:text-[46.3px] text-[25px] mb-3'>Improve how you move</h1>
     <p className='md:text-[19px] text-[10.4px] text-[#000000B0]'>Join Stride to get precise feedback on your training.</p>
     <p className='md:text-[19px] text-[10.4px] text-[#000000B0] mb-7'>Upload your videos, Improve faster.</p>

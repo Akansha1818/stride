@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import api from '../lib/axios'
 import IosLoader from '../components/IosLoader'
+import logo from '../assets/logo_with_name.png'
 
 const OtpPage = () => {
   const navigate = useNavigate()
@@ -74,7 +75,7 @@ const OtpPage = () => {
       ) : null}
       <div className='flex justify-center items-center gap-2'>
         <h1 className='text-3xl'>Welcome to</h1>
-        <img className="h-8 mt-1" src="src\assets\logo_with_name.png" alt="logo" />
+        <img className="h-8 mt-1" src={logo} alt="logo" />
       </div>
       <div className='mt-10'>
         <form className='flex flex-col gap-2 mt-2' onSubmit={onVerify}>
