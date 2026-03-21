@@ -1,0 +1,7 @@
+{
+    "python.defaultInterpreterPath": "c:\\Users\\Lenovo\\Desktop\\Stride\\Backend\\stride-cv\\venv\\Scripts\\python.exe",
+    "python.pythonPath": "c:\\Users\\Lenovo\\Desktop\\Stride\\Backend\\stride-cv\\venv\\Scripts\\python.exe",
+    "python.analysis.extraPaths": [
+        "c:\\Users\\Lenovo\\Desktop\\Stride\\Backend\\stride-cv"
+    ]
+}

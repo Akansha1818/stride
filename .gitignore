@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+node_modules
+dist
+coverage
+
+Backend/node_modules
+Backend/uploads
+Backend/stride-cv/venv
+Backend/stride-cv/__pycache__
+
+Frontend/Stride/node_modules
+Frontend/Stride/dist
