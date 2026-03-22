@@ -78,8 +78,11 @@ const completeUpload = async (req, res) => {
     const finalBlobUrl = await buildBlobUrl(blobName);
     const uploadedBlobExists = await blobExists(blobName);
 
-    if (finalBlobUrl !== url) {
-      return res.status(400).json({ message: "Uploaded blob URL does not match blobName" });
+    const urlWithoutParams = decodeURIComponent(url.split('?')[0]);
+    const decodedFinalUrl = decodeURIComponent(finalBlobUrl);
+
+    if (decodedFinalUrl !== urlWithoutParams) {
+        return res.status(400).json({ message: "Uploaded blob URL does not match blobName" });
     }
 
     if (!uploadedBlobExists) {
