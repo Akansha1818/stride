@@ -1,12 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Eye, EyeOff } from 'lucide-react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import api from '../lib/axios'
 import IosLoader from '../components/IosLoader'
 import logo from '../assets/logo_with_name.png'
+import { useAuth } from '../auth/AuthContext'
 
 const LoginPage = () => {
     const navigate = useNavigate()
+    const location = useLocation()
+    const { refreshAuth } = useAuth()
     const [ispasswordVisible, setisPasswordVisible] = useState(false)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -34,7 +37,8 @@ const LoginPage = () => {
                     setIsGoogleAccount(false)
                     setLoading(true)
                     await api.post('/auth/google', { idToken: response.credential })
-                    navigate('/dashboard')
+                    await refreshAuth()
+                    navigate(location.state?.from || '/dashboard', { replace: true })
                 } catch (e) {
                     setError(e?.customMessage || 'Google login failed')
                 } finally {
@@ -52,7 +56,7 @@ const LoginPage = () => {
                 shape: 'pill',
             })
         }
-    }, [navigate]) 
+    }, [location.state?.from, navigate, refreshAuth]) 
 
     const onSubmit = async (e) => {
         e.preventDefault()
@@ -66,7 +70,8 @@ const LoginPage = () => {
         try {
             setLoading(true)
             await api.post('/auth/login', { email, password })
-            navigate('/dashboard')
+            await refreshAuth()
+            navigate(location.state?.from || '/dashboard', { replace: true })
         } catch (e2) {
             const msg = e2?.customMessage || 'Login failed'
             setError(msg)

@@ -5,7 +5,6 @@ const api = axios.create({
   withCredentials: true,
 })
 
-
 api.interceptors.response.use(
   (response) => {
     return response
@@ -21,11 +20,12 @@ api.interceptors.response.use(
     error.customMessage = message
 
     if (
-            error.response?.status === 401 &&
-            !window.location.pathname.includes('/login')
-        ) {
-            window.location.href = '/login'
-        }
+      error.response?.status === 401 &&
+      !error.config?.skipAuthRedirect &&
+      !window.location.pathname.includes('/login')
+    ) {
+      window.location.href = '/login'
+    }
 
     return Promise.reject(error)
   }

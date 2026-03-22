@@ -4,9 +4,11 @@ import { useNavigate } from 'react-router-dom'
 import api from '../lib/axios'
 import IosLoader from '../components/IosLoader'
 import logo from '../assets/logo_with_name.png'
+import { useAuth } from '../auth/AuthContext'
 
 const SignupPage = () => {
     const navigate = useNavigate()
+    const { refreshAuth } = useAuth()
     const [ispasswordVisible, setisPasswordVisible] = useState(false)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -40,7 +42,8 @@ useEffect(() => {
                 setError('')
                 setLoading(true)
                 await api.post('/auth/google', { idToken: response.credential })
-                navigate('/dashboard')
+                await refreshAuth()
+                navigate('/dashboard', { replace: true })
             } catch (e) {
                 setError(e?.customMessage || 'Google login failed')
             } finally {
@@ -60,7 +63,7 @@ useEffect(() => {
 })
     }
 
-}, [navigate])
+}, [navigate, refreshAuth])
 
     const onSubmit = async (e) => {
         e.preventDefault()
