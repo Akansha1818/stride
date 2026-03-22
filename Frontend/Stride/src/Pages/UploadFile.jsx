@@ -6,6 +6,7 @@ import { getPendingDirectUpload, uploadVideoDirect } from '../lib/azureUpload'
 import logo from '../assets/logo_with_name.png'
 import upload from '../assets/upload.png'
 import right from '../assets/􀁣.png'
+import videoPlaceholder from '../assets/videoImage.png'
 
 const UploadFile = () => {
   const [file, setFile] = useState(null)
@@ -174,7 +175,7 @@ const UploadFile = () => {
             ) : (
               <img
                 className='h-46.75 w-full object-cover'
-                src='/src/assets/videoImage.png'
+                src={videoPlaceholder}
                 alt='video placeholder'
               />
             )}
