@@ -3,12 +3,10 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import api from '../lib/axios'
 import IosLoader from '../components/IosLoader'
 import logo from '../assets/logo_with_name.png'
-import { useAuth } from '../auth/AuthContext'
 
 const OtpPage = () => {
   const navigate = useNavigate()
   const location = useLocation()
-  const { refreshAuth } = useAuth()
   const [otp, setOtp] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
@@ -59,9 +57,8 @@ const OtpPage = () => {
     try {
       setLoading(true)
       await api.post('/auth/register/verify-otp', { email, otp })
-      await refreshAuth()
       sessionStorage.removeItem('email')
-      navigate('/dashboard', { replace: true })
+      navigate('/dashboard')
     } catch (e2) {
       setError(e2?.customMessage || 'OTP verification failed')
     } finally {
